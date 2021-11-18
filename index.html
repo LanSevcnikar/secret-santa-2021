@@ -18,16 +18,17 @@
         <h2 class="form-signin-heading">Secret Santa 2021</h2>
         <select v-model="selectedPerson" class="form-control">
           <option value="null" disabled> Izberi sebe </option>
-          <option v-for="person in people" :key="person" :value="person.name"> {{ person.name }} </option>
+          <option v-for="person in people" :key="person" :value="person.name"> {{ sumnikcorrecter(person.name) }}
+          </option>
         </select>
         <input type="password" inputmode="numeric" class="inpt form-control" placeholder="********" v-model="password"
           maxlength="8">
         <div class="row">
           <div class="col">
-            <button class="btn btn-lg btn-primary btn-block loginbtn" type="submit">Pokaži mi!</button>
+            <button class="btn pravilnik" @click="pravilnik=true">Pravilnik?</button>
           </div>
           <div class="col">
-            <button class="btn pravilnik" @click="pravilnik=true">Pravilnik?</button>
+            <button class="btn btn-lg btn-primary btn-block loginbtn" type="submit">Pokaži mi!</button>
           </div>
         </div>
         <div class="failedAttempt text-danger" v-if="failedAttempt">Poskusi ponovno</div>
@@ -36,9 +37,8 @@
     <div class="wrapper" v-else-if="loggedIn == true">
       <form class="form-signin" @submit.prevent="logout">
         <br> <br> <br>
-        Tvoj secret Santa letos je:
-        <h4 class="form-signin-heading">{{ gifter }}</h4>
-        <br> <br>
+        Tvoj secret Santa letos je: <br> <br>
+        <h4 class="form-signin-heading">{{ sumnikcorrecter(gifter) }}</h4> <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Izpiši se</button>
       </form>
     </div>
@@ -63,9 +63,9 @@
         <br>
         <button class="btn btn-lg btn-primary btn-block w-100" type="submit">Nazaj</button>
       </form>
-      </form>
+
     </div>
-    
+
   </div>
 
 
@@ -85,67 +85,79 @@
         people: [
           {
             name: 'Babica Marica',
-            person: 'TGluYSBTZXbEjW5pa2Fy',
-            passcode: 'NzA4MDA3MjA%3D'
+            person: 'TGFuIFNldl9jaF9uaWthcg%3D%3D',
+            passcode: 'NzA2MTU3NTU%3D'
           },
           {
             name: 'Dedi Miro',
-            person: 'S2FqYSBQcmltb3JhYw%3D%3D',
-            passcode: 'NDQwNDExMjM%3D'
+            person: 'TW9qY2EgKEthamEsIFphbGEp',
+            passcode: 'Njc5NjI0NTQ%3D'
           },
           {
             name: 'Mojca (Lan, Lina)',
-            person: 'TW9qY2EgKEthamEsIFphbGEp',
-            passcode: 'NDI2MDU1NDE%3D'
+            person: 'TWlybyBQcmltb3JhYw%3D%3D',
+            passcode: 'NTI3ODA3MDI%3D'
           },
           {
             name: 'Mojca (Kaja, Zala)',
-            person: 'RGVkaSBNaXJv',
-            passcode: 'Nzk0NDMwNDk%3D'
+            person: 'RmFyaXMgS29fY2hfYW4%3D',
+            passcode: 'MzIyMTE3NzI%3D'
           },
           {
-            name: 'Aljoša Sevčnikar',
-            person: 'TGFuIFNldsSNbmlrYXI%3D',
-            passcode: 'OTIxNzMzOTU%3D'
+            name: 'Aljo_sh_a Sev_ch_nikar',
+            person: 'WmFsYSBQcmltb3JhYw%3D%3D',
+            passcode: 'MjM4NTU5NDA%3D'
           },
           {
             name: 'Miro Primorac',
-            person: 'RmFyaXMgS2%2FEjWFu',
-            passcode: 'NTk3MTk2MzQ%3D'
+            person: 'RGVkaSBNaXJv',
+            passcode: 'ODcwMTMyMDA%3D'
           },
           {
             name: 'Kaja Primorac',
-            person: 'WmFsYSBQcmltb3JhYw%3D%3D',
-            passcode: 'ODA3NzgzMjQ%3D'
+            person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
+            passcode: 'NDU5NjQwMDE%3D'
           },
           {
             name: 'Zala Primorac',
-            person: 'QWxqb8WhYSBTZXbEjW5pa2Fy',
-            passcode: 'NDYzMjcyNTc%3D'
-          },
-          {
-            name: 'Lan Sevčnikar',
-            person: 'TWlybyBQcmltb3JhYw%3D%3D',
-            passcode: 'OTI5OTY4MzU%3D'
-          },
-          {
-            name: 'Lina Sevčnikar',
-            person: 'TmlrIEpldsWhbmlr',
-            passcode: 'NjkwNTgzNjM%3D'
-          },
-          {
-            name: 'Faris Kočan',
-            person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
-            passcode: 'NDEzMzkxMTA%3D'
-          },
-          {
-            name: 'Nik Jevšnik',
             person: 'QmFiaWNhIE1hcmljYQ%3D%3D',
-            passcode: 'ODQwNTA2ODE%3D'
+            passcode: 'NzY4MTcyMzk%3D'
+          },
+          {
+            name: 'Lan Sev_ch_nikar',
+            person: 'QWxqb19zaF9hIFNldl9jaF9uaWthcg%3D%3D',
+            passcode: 'MjA0NDk4NDg%3D'
+          },
+          {
+            name: 'Lina Sev_ch_nikar',
+            person: 'TmlrIEpldl9jaF9uaWs%3D',
+            passcode: 'NjQ0OTExMzc%3D'
+          },
+          {
+            name: 'Faris Ko_ch_an',
+            person: 'TGluYSBTZXZfY2hfbmlrYXI%3D',
+            passcode: 'MzkxNjE0NjY%3D'
+          },
+          {
+            name: 'Nik Jev_ch_nik',
+            person: 'S2FqYSBQcmltb3JhYw%3D%3D',
+            passcode: 'NjQzODYxODQ%3D'
           }
         ],
       },
       methods: {
+        sumnikcorrecter(name) {
+          name = name.replaceAll('_sh_', 'š');
+          name = name.replaceAll('Å ', 'Š');
+          name = name.replaceAll('Ä\x91', 'đ');
+          name = name.replaceAll('Ä\x90', 'Đ');
+          name = name.replaceAll('Å¾', 'ž');
+          name = name.replaceAll('Å½', 'Ž');
+          name = name.replaceAll('_ch_', 'č');
+          name = name.replaceAll('Ä\x8C', 'Č');
+          return name;
+        },
+
         login() {
           if (this.people.find((person) => person.name == this.selectedPerson).passcode == encodeURIComponent(btoa(this.password))) {
             this.loggedIn = true;
@@ -215,12 +227,16 @@
     border-top-right-radius: 0;
   }
 
-  .pravilnik{
-    text-align: end;
+  button {
     width: 100%;
   }
 
-  .loginbtn{
+  .pravilnik {
+    text-align: start;
+    width: 100%;
+  }
+
+  .loginbtn {
     font-size: 1.1rem;
   }
 

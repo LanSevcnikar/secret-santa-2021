@@ -31,14 +31,14 @@ people = [
   "Dedi Miro",
   "Mojca (Lan, Lina)",
   "Mojca (Kaja, Zala)",
-  "Aljoša Sevčnikar",
+  "Aljo_sh_a Sev_ch_nikar",
   "Miro Primorac",
   "Kaja Primorac",
   "Zala Primorac",
-  "Lan Sevčnikar",
-  "Lina Sevčnikar",
-  "Faris Kočan",
-  "Nik Jevšnik",
+  "Lan Sev_ch_nikar",
+  "Lina Sev_ch_nikar",
+  "Faris Ko_ch_an",
+  "Nik Jev_ch_nik",
 ]
 
 redo = false;
