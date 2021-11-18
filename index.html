@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="app">
+    <div class="wrapper" v-if="loggedIn == false && pravilnik == false">
+      <form class="form-signin" @submit.prevent="login">
+        <h2 class="form-signin-heading">Secret Santa 2021</h2>
+        <select v-model="selectedPerson" class="form-control">
+          <option value="null" disabled> Izberi sebe </option>
+          <option v-for="person in people" :key="person" :value="person.name"> {{ person.name }} </option>
+        </select>
+        <input type="password" inputmode="numeric" class="inpt form-control" placeholder="********" v-model="password"
+          maxlength="8">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-lg btn-primary btn-block loginbtn" type="submit">Pokaži mi!</button>
+          </div>
+          <div class="col">
+            <button class="btn pravilnik" @click="pravilnik=true">Pravilnik?</button>
+          </div>
+        </div>
+        <div class="failedAttempt text-danger" v-if="failedAttempt">Poskusi ponovno</div>
+      </form>
+    </div>
+    <div class="wrapper" v-else-if="loggedIn == true">
+      <form class="form-signin" @submit.prevent="logout">
+        <br> <br> <br>
+        Tvoj secret Santa letos je:
+        <h4 class="form-signin-heading">{{ gifter }}</h4>
+        <br> <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Izpiši se</button>
+      </form>
+    </div>
+    <div class="wrapper" v-else>
+      <form class="form-signin" @submit.prevent="pravilnik = false">
+        <h3>Pravilnik:</h3>
+        Enako kot vsa leta do sedaj <br> <br>
+
+        <ul>
+          <li>
+            Maksimum 30€
+          </li>
+          <li>
+            Če možno mora biti darilo slovenskega porekla
+          </li>
+          <li>
+            Nikomur se ne sme povedati nič
+          </li>
+        </ul>
+
+        <br>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block w-100" type="submit">Nazaj</button>
+      </form>
+      </form>
+    </div>
+    
+  </div>
+
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        loggedIn: false,
+        failedAttempt: false,
+        pravilnik: false,
+
+        selectedPerson: null,
+        password: "",
+
+        gifter: null,
+
+        people: [
+          {
+            name: 'Babica Marica',
+            person: 'TGluYSBTZXbEjW5pa2Fy',
+            passcode: 'NzA4MDA3MjA%3D'
+          },
+          {
+            name: 'Dedi Miro',
+            person: 'S2FqYSBQcmltb3JhYw%3D%3D',
+            passcode: 'NDQwNDExMjM%3D'
+          },
+          {
+            name: 'Mojca (Lan, Lina)',
+            person: 'TW9qY2EgKEthamEsIFphbGEp',
+            passcode: 'NDI2MDU1NDE%3D'
+          },
+          {
+            name: 'Mojca (Kaja, Zala)',
+            person: 'RGVkaSBNaXJv',
+            passcode: 'Nzk0NDMwNDk%3D'
+          },
+          {
+            name: 'Aljoša Sevčnikar',
+            person: 'TGFuIFNldsSNbmlrYXI%3D',
+            passcode: 'OTIxNzMzOTU%3D'
+          },
+          {
+            name: 'Miro Primorac',
+            person: 'RmFyaXMgS2%2FEjWFu',
+            passcode: 'NTk3MTk2MzQ%3D'
+          },
+          {
+            name: 'Kaja Primorac',
+            person: 'WmFsYSBQcmltb3JhYw%3D%3D',
+            passcode: 'ODA3NzgzMjQ%3D'
+          },
+          {
+            name: 'Zala Primorac',
+            person: 'QWxqb8WhYSBTZXbEjW5pa2Fy',
+            passcode: 'NDYzMjcyNTc%3D'
+          },
+          {
+            name: 'Lan Sevčnikar',
+            person: 'TWlybyBQcmltb3JhYw%3D%3D',
+            passcode: 'OTI5OTY4MzU%3D'
+          },
+          {
+            name: 'Lina Sevčnikar',
+            person: 'TmlrIEpldsWhbmlr',
+            passcode: 'NjkwNTgzNjM%3D'
+          },
+          {
+            name: 'Faris Kočan',
+            person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
+            passcode: 'NDEzMzkxMTA%3D'
+          },
+          {
+            name: 'Nik Jevšnik',
+            person: 'QmFiaWNhIE1hcmljYQ%3D%3D',
+            passcode: 'ODQwNTA2ODE%3D'
+          }
+        ],
+      },
+      methods: {
+        login() {
+          if (this.people.find((person) => person.name == this.selectedPerson).passcode == encodeURIComponent(btoa(this.password))) {
+            this.loggedIn = true;
+            this.failedAttempt = false;
+            this.gifter = atob(decodeURIComponent(this.people.find((person) => person.name == this.selectedPerson).person));
+          } else {
+            this.failedAttempt = true;
+            this.password = '';
+          }
+        },
+        logout() {
+          this.loggedIn = false;
+          this.failedAttempt = false;
+          this.password = '';
+        }
+      },
+    })
+  </script>
+</body>
+<style>
+  body {
+    background: #fff !important;
+  }
+
+  .wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .form-signin {
+    height: 300px;
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 30px;
+  }
+
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+
+  .form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .form-signin input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .pravilnik{
+    text-align: end;
+    width: 100%;
+  }
+
+  .loginbtn{
+    font-size: 1.1rem;
+  }
+
+  /*  
+body {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.25rem;
+  }
+
+  .loggedout {
+    background: lightgray;
+    width: 80%;
+    height: 300px;
+    margin: auto;
+    margin-top: calc(50vh - 190px);
+  }
+
+  select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: white;
+  }
+
+  .password {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .inpt {
+    font-size: 1.25rem;
+    width: 95% !important;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: white;
+    margin-top: 110px;
+  } */
+</style>
+
+</html>
