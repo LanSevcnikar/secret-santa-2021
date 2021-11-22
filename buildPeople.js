@@ -38,7 +38,7 @@ people = [
   "Lan Sev_ch_nikar",
   "Lina Sev_ch_nikar",
   "Faris Ko_ch_an",
-  "Nik Jev_ch_nik",
+  "Nik Je_sh_nik",
 ]
 
 redo = false;
