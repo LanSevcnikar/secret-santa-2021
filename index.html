@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Secret Santa 2022</title>
+  <title>Secret Santa 2023</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,7 +16,7 @@
   <div id="app">
     <div class="wrapper" v-if="loggedIn == false && pravilnik == false">
       <form class="form-signin" @submit.prevent="login">
-        <h2 class="form-signin-heading">Secret Santa 2021</h2>
+        <h2 class="form-signin-heading">Secret Santa 2023</h2>
         <select v-model="selectedPerson" class="form-control">
           <option value="null" disabled> Izberi sebe </option>
           <option v-for="person in people" :key="person" :value="person.name"> {{ sumnikcorrecter(person.name) }}
@@ -44,7 +44,7 @@
         <br> <br> <br>
         Tvoj secret Santa letos je: <br> <br>
         <h4 class="form-signin-heading">{{ sumnikcorrecter(gifter) }}</h4> <br>
-        <div class="form-signin-heading" style="margin-top:-35px; margin-bottom:35px; color: grey;">Prav tako si bil/bila naključno izžreban/izžrebana, da še nekaj kupiš Liri :). <br> Naj to ostane skrivnost</div>
+        <div class="form-signin-heading" style="margin-top:-35px; margin-bottom:35px; color: grey;"> Prosim ne pozabit na Liro in kakšnega kosmatinca :).</div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Izpiši se</button>
       </form>
     </div>
@@ -85,63 +85,63 @@
         people: [
   {
     name: 'Babica Marica',
-    person: 'TGluYSBTZXZfY2hfbmlrYXI%3D',
-    passcode: 'NzQzOTkzMTg%3D'
+    person: 'TW9qY2EgKEthamEsIFphbGEp',
+    passcode: 'Mjc0ODc5MjE%3D'
   },
   {
     name: 'Dedi Miro',
-    person: 'TGFuIFNldl9jaF9uaWthcg%3D%3D',
-    passcode: 'NDc1Mjk0MTQ%3D'
+    person: 'QmFiaWNhIE1hcmljYQ%3D%3D',
+    passcode: 'NTI4MDM3MzQ%3D'
   },
   {
     name: 'Mojca (Lan, Lina)',
-    person: 'RmFyaXMgS29fY2hfYW4%3D',
-    passcode: 'NTMxODE5NzQ%3D'
+    person: 'QWxqb19zaF9hIFNldl9jaF9uaWthcg%3D%3D',
+    passcode: 'NDQ4MTA0NTM%3D'
   },
   {
     name: 'Mojca (Kaja, Zala)',
-    person: 'TWlybyBQcmltb3JhYw%3D%3D',
-    passcode: 'MTk4MDIxOTA%3D'
+    person: 'S2FqYSBQcmltb3JhYw%3D%3D',
+    passcode: 'ODE1MzA4NTU%3D'
   },
   {
     name: 'Aljo_sh_a Sev_ch_nikar',
-    person: 'TW9qY2EgKEthamEsIFphbGEp',
-    passcode: 'ODM2ODkxNjE%3D'
+    person: 'TmlrIEplX3NoX25paw%3D%3D',
+    passcode: 'NzYyMzYzNjQ%3D'
   },
   {
     name: 'Miro Primorac',
-    person: 'S2FqYSBQcmltb3JhYw%3D%3D',
-    passcode: 'MzAzODU1ODA%3D'
+    person: 'TGFuIFNldl9jaF9uaWthcg%3D%3D',
+    passcode: 'Nzk0MzAxNTE%3D'
   },
   {
     name: 'Kaja Primorac',
-    person: 'TmlrIEplX3NoX25paw%3D%3D',
-    passcode: 'Mjc2OTE3MzI%3D'
+    person: 'TWlybyBQcmltb3JhYw%3D%3D',
+    passcode: 'MTkwNzAxMTU%3D'
   },
   {
     name: 'Zala Primorac',
-    person: 'QmFiaWNhIE1hcmljYQ%3D%3D',
-    passcode: 'NDU3NzIwMzE%3D'
+    person: 'TGluYSBTZXZfY2hfbmlrYXI%3D',
+    passcode: 'Mjg4ODgwMzQ%3D'
   },
   {
     name: 'Lan Sev_ch_nikar',
-    person: 'QWxqb19zaF9hIFNldl9jaF9uaWthcg%3D%3D',
-    passcode: 'ODU4NjI5ODc%3D'
+    person: 'WmFsYSBQcmltb3JhYw%3D%3D',
+    passcode: 'NDQ0NDcwNTY%3D'
   },
   {
     name: 'Lina Sev_ch_nikar',
-    person: 'WmFsYSBQcmltb3JhYw%3D%3D',
-    passcode: 'OTkyODE1Njc%3D'
+    person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
+    passcode: 'OTY4NTE5MDM%3D'
   },
   {
     name: 'Faris Ko_ch_an',
-    person: 'RGVkaSBNaXJv',
-    passcode: 'NzkxNzIzNTE%3D'
+    person: 'RmFyaXMgS29fY2hfYW4%3D',
+    passcode: 'NjIyMDMyMDI%3D'
   },
   {
     name: 'Nik Je_sh_nik',
-    person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
-    passcode: 'MjM1MjI5MTk%3D'
+    person: 'RGVkaSBNaXJv',
+    passcode: 'NjgwODMzNDk%3D'
   }
 ],
         loggedIn: false,

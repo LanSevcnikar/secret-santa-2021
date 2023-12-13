@@ -1,74 +1,74 @@
-Babica Marica :  74399318
-Dedi Miro :  47529414
-Mojca (Lan, Lina) :  53181974
-Mojca (Kaja, Zala) :  19802190
-Aljo_sh_a Sev_ch_nikar :  83689161
-Miro Primorac :  30385580
-Kaja Primorac :  27691732
-Zala Primorac :  45772031
-Lan Sev_ch_nikar :  85862987
-Lina Sev_ch_nikar :  99281567
-Faris Ko_ch_an :  79172351
-Nik Je_sh_nik :  23522919
+Babica Marica :  27487921
+Dedi Miro :  52803734
+Mojca (Lan, Lina) :  44810453
+Mojca (Kaja, Zala) :  81530855
+Aljo_sh_a Sev_ch_nikar :  76236364
+Miro Primorac :  79430151
+Kaja Primorac :  19070115
+Zala Primorac :  28888034
+Lan Sev_ch_nikar :  44447056
+Lina Sev_ch_nikar :  96851903
+Faris Ko_ch_an :  62203202
+Nik Je_sh_nik :  68083349
 [
   {
     name: 'Babica Marica',
-    person: 'TGluYSBTZXZfY2hfbmlrYXI%3D',
-    passcode: 'NzQzOTkzMTg%3D'
+    person: 'TW9qY2EgKEthamEsIFphbGEp',
+    passcode: 'Mjc0ODc5MjE%3D'
   },
   {
     name: 'Dedi Miro',
-    person: 'TGFuIFNldl9jaF9uaWthcg%3D%3D',
-    passcode: 'NDc1Mjk0MTQ%3D'
+    person: 'QmFiaWNhIE1hcmljYQ%3D%3D',
+    passcode: 'NTI4MDM3MzQ%3D'
   },
   {
     name: 'Mojca (Lan, Lina)',
-    person: 'RmFyaXMgS29fY2hfYW4%3D',
-    passcode: 'NTMxODE5NzQ%3D'
+    person: 'QWxqb19zaF9hIFNldl9jaF9uaWthcg%3D%3D',
+    passcode: 'NDQ4MTA0NTM%3D'
   },
   {
     name: 'Mojca (Kaja, Zala)',
-    person: 'TWlybyBQcmltb3JhYw%3D%3D',
-    passcode: 'MTk4MDIxOTA%3D'
+    person: 'S2FqYSBQcmltb3JhYw%3D%3D',
+    passcode: 'ODE1MzA4NTU%3D'
   },
   {
     name: 'Aljo_sh_a Sev_ch_nikar',
-    person: 'TW9qY2EgKEthamEsIFphbGEp',
-    passcode: 'ODM2ODkxNjE%3D'
+    person: 'TmlrIEplX3NoX25paw%3D%3D',
+    passcode: 'NzYyMzYzNjQ%3D'
   },
   {
     name: 'Miro Primorac',
-    person: 'S2FqYSBQcmltb3JhYw%3D%3D',
-    passcode: 'MzAzODU1ODA%3D'
+    person: 'TGFuIFNldl9jaF9uaWthcg%3D%3D',
+    passcode: 'Nzk0MzAxNTE%3D'
   },
   {
     name: 'Kaja Primorac',
-    person: 'TmlrIEplX3NoX25paw%3D%3D',
-    passcode: 'Mjc2OTE3MzI%3D'
+    person: 'TWlybyBQcmltb3JhYw%3D%3D',
+    passcode: 'MTkwNzAxMTU%3D'
   },
   {
     name: 'Zala Primorac',
-    person: 'QmFiaWNhIE1hcmljYQ%3D%3D',
-    passcode: 'NDU3NzIwMzE%3D'
+    person: 'TGluYSBTZXZfY2hfbmlrYXI%3D',
+    passcode: 'Mjg4ODgwMzQ%3D'
   },
   {
     name: 'Lan Sev_ch_nikar',
-    person: 'QWxqb19zaF9hIFNldl9jaF9uaWthcg%3D%3D',
-    passcode: 'ODU4NjI5ODc%3D'
+    person: 'WmFsYSBQcmltb3JhYw%3D%3D',
+    passcode: 'NDQ0NDcwNTY%3D'
   },
   {
     name: 'Lina Sev_ch_nikar',
-    person: 'WmFsYSBQcmltb3JhYw%3D%3D',
-    passcode: 'OTkyODE1Njc%3D'
+    person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
+    passcode: 'OTY4NTE5MDM%3D'
   },
   {
     name: 'Faris Ko_ch_an',
-    person: 'RGVkaSBNaXJv',
-    passcode: 'NzkxNzIzNTE%3D'
+    person: 'RmFyaXMgS29fY2hfYW4%3D',
+    passcode: 'NjIyMDMyMDI%3D'
   },
   {
     name: 'Nik Je_sh_nik',
-    person: 'TW9qY2EgKExhbiwgTGluYSk%3D',
-    passcode: 'MjM1MjI5MTk%3D'
+    person: 'RGVkaSBNaXJv',
+    passcode: 'NjgwODMzNDk%3D'
   }
 ]

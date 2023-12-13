@@ -52,11 +52,12 @@ do {
   for (let i = 0; i < people.length; i++) {
     const person1 = people[i];
     const person2 = people_copy[i];
-    if (person1 == person2) {
-      redo = true;
+    if (person1 == "Lina Sev_ch_nikar") {
+      if (person2 != "Mojca (Lan, Lina)") {
+        redo = true;
+      }
     }
   }
-  console.log(people);
 } while (redo);
 
 let data = [];
