@@ -31,7 +31,6 @@ people = [
   "Dedi Miro",
   "Mojca (Lan, Lina)",
   "Mojca (Kaja, Zala)",
-  "Aljo_sh_a Sev_ch_nikar",
   "Miro Primorac",
   "Kaja Primorac",
   "Zala Primorac",
@@ -52,11 +51,6 @@ do {
   for (let i = 0; i < people.length; i++) {
     const person1 = people[i];
     const person2 = people_copy[i];
-    if (person1 == "Lina Sev_ch_nikar") {
-      if (person2 != "Mojca (Lan, Lina)") {
-        redo = true;
-      }
-    }
   }
 } while (redo);
 
