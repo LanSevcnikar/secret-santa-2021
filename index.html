@@ -16,7 +16,7 @@
   <div id="app">
     <div class="wrapper" v-if="loggedIn == false && pravilnik == false">
       <form class="form-signin" @submit.prevent="login">
-        <h2 class="form-signin-heading">Secret Santa 2024</h2>
+        <h2 class="form-signin-heading">Secret Santa 2025</h2>
         <select v-model="selectedPerson" class="form-control">
           <option value="null" disabled> Izberi sebe </option>
           <option v-for="person in people" :key="person" :value="person.name"> {{ sumnikcorrecter(person.name) }}
