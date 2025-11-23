@@ -52,6 +52,12 @@ do {
     const person1 = people[i];
     const person2 = people_copy[i];
   }
+
+  // Lina must get Mojca (Lan, Lina)
+  if (people_copy[people.indexOf("Lina Sev_ch_nikar")] !=
+    "Mojca (Lan, Lina)") {
+    redo = true;
+  }
 } while (redo);
 
 let data = [];
