@@ -5,52 +5,57 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Secret Santa 2025</title>
+  <title>Secret Santa 2026</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0f3d2e">
 </head>
 
 <body>
+  <!-- opening animation: fades out by itself, tap skips it -->
+  <div class="intro" onclick="this.remove()" aria-hidden="true">
+    <div class="intro-gift">🎁</div>
+    <div class="intro-title">Veseli božič!</div>
+    <div class="intro-sub">Secret Santa 2026</div>
+  </div>
+
   <div id="app">
     <div class="wrapper" v-if="loggedIn == false && pravilnik == false">
       <form class="form-signin" @submit.prevent="login">
-        <h2 class="form-signin-heading">Secret Santa 2025</h2>
-        <select v-model="selectedPerson" class="form-control">
-          <option value="null" disabled> Izberi sebe </option>
-          <option v-for="person in people" :key="person" :value="person.name"> {{ sumnikcorrecter(person.name) }}
+        <h2 class="form-signin-heading">🎄 Secret Santa 2026</h2>
+
+        <label for="who" class="lbl">1. Izberi sebe</label>
+        <select id="who" v-model="selectedPerson" class="form-control" required>
+          <option :value="null" disabled> Izberi sebe </option>
+          <option v-for="person in people" :key="person.name" :value="person.name"> {{ sumnikcorrecter(person.name) }}
           </option>
         </select>
 
-
-        <input type="password" inputmode="numeric" class="inpt form-control" placeholder="********" v-model="password"
+        <label for="pw" class="lbl">2. Vpiši geslo</label>
+        <input id="pw" type="password" inputmode="numeric" class="inpt form-control" placeholder="********" v-model="password"
           maxlength="8">
 
+        <div class="failedAttempt" v-if="failedAttempt" role="alert">Poskusi ponovno</div>
 
-        <div class="row">
-          <div class="col">
-            <button class="btn pravilnik" @click="pravilnik=true">Pravilnik?</button>
-          </div>
-          <div class="col">
-            <button class="btn btn-lg btn-primary btn-block loginbtn" type="submit">Pokaži mi!</button>
-          </div>
-        </div>
-        <div class="failedAttempt text-danger" v-if="failedAttempt">Poskusi ponovno</div>
+        <button class="btn btn-lg btn-primary loginbtn" type="submit">Pokaži mi! 🎁</button>
+        <button class="btn pravilnik" type="button" @click="pravilnik=true">Pravilnik?</button>
       </form>
     </div>
     <div class="wrapper" v-else-if="loggedIn == true">
-      <form class="form-signin" @submit.prevent="logout">
-        <br> <br> <br>
-        Tvoj secret Santa letos je: <br> <br>
-        <h4 class="form-signin-heading">{{ sumnikcorrecter(gifter) }}</h4> <br>
-        <div class="form-signin-heading" style="margin-top:-35px; margin-bottom:35px; color: grey;"> Prosim ne pozabit na Liro in kakšnega kosmatinca :).</div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Izpiši se</button>
+      <form class="form-signin reveal" @submit.prevent="logout">
+        <div class="gift">🎁</div>
+        <p class="lead-in">Tvoj secret Santa letos je:</p>
+        <h2 class="who">{{ sumnikcorrecter(gifter) }}</h2>
+        <p class="note">Prosim ne pozabit na Liro in kakšnega kosmatinca :).</p>
+        <button class="btn btn-lg btn-primary" type="submit">Izpiši se</button>
       </form>
     </div>
     <div class="wrapper" v-else>
       <form class="form-signin" @submit.prevent="pravilnik = false">
-        <h3>Pravilnik:</h3>
+        <h2>Pravilnik:</h2>
         Enako kot vsa leta do sedaj <br> <br>
 
         <ul style="width: 95%;">
@@ -184,71 +189,219 @@
   </script>
 </body>
 <style>
+  :root {
+    --pine: #0f3d2e;
+    --red: #b3202a;
+    --red-dark: #8f1620;
+    --cream: #fffaf0;
+    --ink: #2b1d17;
+  }
+
+  /* big base size: everything in rem scales up for easy reading */
+  html { font-size: 20px; }
+
   body {
-    background: #fff !important;
+    background: radial-gradient(ellipse at top, #1b6b4c, var(--pine) 70%) fixed !important;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  /* snow: three dot layers, tile sizes = scroll distance so it loops seamlessly */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(3px 3px at 20px 30px, #fff 50%, transparent 55%),
+      radial-gradient(4px 4px at 120px 80px, #fff 50%, transparent 55%),
+      radial-gradient(2px 2px at 200px 150px, #fff 50%, transparent 55%);
+    background-size: 250px 250px, 300px 300px, 180px 180px;
+    animation: snow 14s linear infinite;
+  }
+
+  /* twinkling string of lights */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 32px;
+    z-index: 3;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) 0 7px / 100% 2px no-repeat,
+      radial-gradient(circle 7px at 15px 17px, #ff4d4d 85%, transparent) 0 0 / 90px 32px repeat-x,
+      radial-gradient(circle 7px at 45px 17px, #ffd54a 85%, transparent) 0 0 / 90px 32px repeat-x,
+      radial-gradient(circle 7px at 75px 17px, #4dd6ff 85%, transparent) 0 0 / 90px 32px repeat-x;
+    animation: twinkle 1.6s ease-in-out infinite;
   }
 
   .wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+    margin: 56px 12px 40px;
   }
 
   .form-signin {
-    height: 300px;
-    max-width: 380px;
-    padding: 15px 35px 45px;
+    position: relative;
+    overflow: hidden;
+    max-width: 420px;
     margin: 0 auto;
-    background-color: #fff;
+    padding: 40px 28px 28px;
+    background: var(--cream);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+    text-align: center;
   }
 
-  .form-signin .form-signin-heading,
-  .form-signin .checkbox {
-    margin-bottom: 30px;
+  /* candy cane edge */
+  .form-signin::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(-45deg, var(--red) 0 12px, #fff 12px 24px);
   }
 
-  .form-signin .checkbox {
-    font-weight: normal;
+  .form-signin h2,
+  .form-signin h3 {
+    font-family: Pacifico, cursive;
+    color: var(--red);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+  }
+
+  .lbl {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: .3rem;
   }
 
   .form-signin .form-control {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
+    font-size: 1.1rem;
+    padding: .7rem;
+    margin-bottom: 1.1rem;
+    border: 2px solid #8a7a6a;
+    border-radius: 12px;
   }
 
-  .form-signin .form-control:focus {
-    z-index: 2;
+  .inpt {
+    text-align: center;
+    letter-spacing: .25em;
   }
 
-  .form-signin input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .form-signin input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  button {
+  .form-signin .btn {
+    display: block;
     width: 100%;
+    margin-top: .8rem;
+    padding: .7rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: var(--red-dark);
+    border-color: var(--red-dark);
   }
 
   .pravilnik {
-    text-align: start;
-    width: 100%;
+    background: none;
+    border: 2px solid var(--pine);
+    color: var(--pine);
   }
 
-  .loginbtn {
+  .pravilnik:hover {
+    background: var(--pine);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .failedAttempt {
+    color: var(--red);
+    font-weight: bold;
     font-size: 1.1rem;
+    animation: shake .4s;
   }
 
-  form i {
-    margin-left: -30px;
-    cursor: pointer;
+  .form-signin ul {
+    text-align: left;
+    line-height: 1.6;
+    padding-left: 1.2rem;
+  }
+
+  /* the big reveal */
+  .gift {
+    display: inline-block;
+    font-size: 4rem;
+    animation: wiggle 1s .2s ease-in-out 2;
+  }
+
+  .lead-in { margin: .5rem 0 0; }
+
+  .form-signin .who {
+    font-family: inherit;
+    color: var(--red);
+    font-weight: bold;
+    font-size: 2.2rem;
+    margin: .3rem 0 1rem;
+    animation: pop .9s .5s cubic-bezier(.2, 1.6, .4, 1) both;
+  }
+
+  .note {
+    color: #5a4a40;
+    margin-bottom: 1rem;
+  }
+
+  /* opening animation */
+  .intro {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, var(--red), var(--red-dark));
+    color: #ffe9a8;
+    text-align: center;
+    animation: intro-out .8s 2.4s forwards;
+  }
+
+  .intro-gift { font-size: 6rem; animation: drop 1s both; }
+  .intro-title { font-family: Pacifico, cursive; font-size: 2.6rem; animation: fade-up .6s .9s both; }
+  .intro-sub { font-size: 1.2rem; letter-spacing: .1em; animation: fade-up .6s 1.2s both; }
+
+  @keyframes snow { to { background-position: 40px 250px, -60px 300px, 20px 180px; } }
+  @keyframes twinkle { 50% { filter: brightness(.5); } }
+  @keyframes drop {
+    0% { transform: translateY(-100vh) rotate(-20deg); }
+    55% { transform: translateY(0) rotate(8deg); }
+    75% { transform: translateY(-30px); }
+    90% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: none; }
+  }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  @keyframes intro-out { to { opacity: 0; visibility: hidden; } }
+  @keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
+  @keyframes shake { 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro, body::before, body::after { display: none; }
+    * { animation: none !important; }
   }
 
 
