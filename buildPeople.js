@@ -48,14 +48,9 @@ do {
   people_copy = [...people]
   people_copy = shuffle(people_copy);
 
-  for (let i = 0; i < people.length; i++) {
-    const person1 = people[i];
-    const person2 = people_copy[i];
-  }
-
-  // Lina must get Mojca (Lan, Lina)
+  // Lina must get Lan
   if (people_copy[people.indexOf("Lina Sev_ch_nikar")] !=
-    "Mojca (Lan, Lina)") {
+    "Lan Sev_ch_nikar") {
     redo = true;
   }
 } while (redo);
