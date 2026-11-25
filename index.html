@@ -23,7 +23,7 @@
   </div>
 
   <div id="app">
-    <div class="wrapper" v-if="loggedIn == false && pravilnik == false">
+    <div class="wrapper" key="login" v-if="loggedIn == false && pravilnik == false">
       <form class="form-signin" @submit.prevent="login">
         <h2 class="form-signin-heading">🎄 Secret Santa 2026</h2>
 
@@ -44,7 +44,7 @@
         <button class="btn pravilnik" type="button" @click="pravilnik=true">Pravilnik?</button>
       </form>
     </div>
-    <div class="wrapper" v-else-if="loggedIn == true">
+    <div class="wrapper" key="reveal" v-else-if="loggedIn == true">
       <form class="form-signin reveal" @submit.prevent="logout">
         <div class="gift">🎁</div>
         <p class="lead-in">Tvoj secret Santa letos je:</p>
@@ -53,7 +53,7 @@
         <button class="btn btn-lg btn-primary" type="submit">Izpiši se</button>
       </form>
     </div>
-    <div class="wrapper" v-else>
+    <div class="wrapper" key="rules" v-else>
       <form class="form-signin" @submit.prevent="pravilnik = false">
         <h2>Pravilnik:</h2>
         Enako kot vsa leta do sedaj <br> <br>
