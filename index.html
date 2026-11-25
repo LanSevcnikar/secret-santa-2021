@@ -27,14 +27,14 @@
       <form class="form-signin" @submit.prevent="login">
         <h2 class="form-signin-heading">🎄 Secret Santa 2026</h2>
 
-        <label for="who" class="lbl">1. Izberi sebe</label>
+        <label for="who" class="lbl">1. Izberi svoje ime </label>
         <select id="who" v-model="selectedPerson" class="form-control" required>
-          <option :value="null" disabled> Izberi sebe </option>
+          <option :value="null" disabled> Izberi svoje ime </option>
           <option v-for="person in people" :key="person.name" :value="person.name"> {{ sumnikcorrecter(person.name) }}
           </option>
         </select>
 
-        <label for="pw" class="lbl">2. Vpiši geslo</label>
+        <label for="pw" class="lbl">2. Vpiši svoje geslo</label>
         <input id="pw" type="password" inputmode="numeric" class="inpt form-control" placeholder="********" v-model="password"
           maxlength="8">
 
